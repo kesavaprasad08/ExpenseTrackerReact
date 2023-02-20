@@ -1,11 +1,14 @@
-import "./ExpenseItem.css";
+import React from "react";
 
-function ExpenseDetails(props) {
+import "./ExpenseItem.css";
+import Card from "../UI/card";
+
+const ExpenseDetails = (props) => {
   return (
-    <div>
+    <Card>
       <div className="expense-item__price">Rs {props.amount}</div>
-    </div>
+    </Card>
   );
-}
+};
 
 export default ExpenseDetails;
