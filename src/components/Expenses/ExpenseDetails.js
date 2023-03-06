@@ -6,7 +6,7 @@ import Card from "../UI/card";
 const ExpenseDetails = (props) => {
   return (
     <Card>
-      <div className="expense-item__price">Rs {props.amount}</div>
+      <div className="expense-item__price"> {props.amount} $</div>
     </Card>
   );
 };
