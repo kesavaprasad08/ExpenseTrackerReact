@@ -5,7 +5,7 @@ import Card from "../UI/card";
 import "./Expenses.css";
 
 const Expenses = (props) => {
-  <Card className="expenses">
+  <Card className="expenses" id ="expensesid">
     <ExpenseItem
       date={props.date}
       title={props.title}
