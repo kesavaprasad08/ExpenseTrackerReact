@@ -3,6 +3,7 @@ import React from "react";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import Card from "./components/UI/card";
 import './components/Expenses/Expenses.css';
+import NewExpense from "./components/Expenses/newExpense/NewExpense";
 
 
 
@@ -39,9 +40,13 @@ const App = () => {
   ];
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <h2>Expense Item</h2>
+      
+      
+      <NewExpense/> 
+      
+      
       <Card className="expenses">
+      
       {expenses.map((expenses, index) => {
         return (
           <ExpenseItem
@@ -55,6 +60,11 @@ const App = () => {
       })}
       
     </Card>
+    <div>
+      <form>
+      <div></div>
+      </form>
+    </div>
     </div>
   );
 }
