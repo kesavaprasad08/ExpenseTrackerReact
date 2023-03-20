@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import Card from "./components/UI/card";
-import './components/Expenses/Expenses.css';
+import "./components/Expenses/Expenses.css";
 import NewExpense from "./components/Expenses/newExpense/NewExpense";
-
-
 
 const App = () => {
   const expenses = [
@@ -31,42 +29,47 @@ const App = () => {
       locationOfExpenditure: "Kochi",
     },
     {
-      id : "e4",
+      id: "e4",
       title: "rent",
       Amount: 20000,
       date: new Date(2021, 1, 1),
       locationOfExpenditure: "Chennai",
-    }
+    },
   ];
+
+  const [newexpenses, setExpenses] = useState(expenses);
+
+  const addExpenseHandler = (enteredExpensedData) => {
+    const newExpenseFull = { ...newexpenses, enteredExpensedData };
+
+    setExpenses(newExpenseFull);
+  };
+
   return (
     <div>
-      
-      
-      <NewExpense/> 
-      
-      
+      <NewExpense onAddExpense={addExpenseHandler} />
+
       <Card className="expenses">
-      
-      {expenses.map((expenses, index) => {
-        return (
-          <ExpenseItem
-            key={index}
-            title={expenses.title}
-            amount={expenses.Amount}
-            date={expenses.date}
-            location={expenses.locationOfExpenditure}
-          />
-        );
-      })}
-      
-    </Card>
-    <div>
-      <form>
-      <div></div>
-      </form>
-    </div>
+        {expenses.map((expenses, index) => {
+          console.log("ge");
+          return (
+            <ExpenseItem
+              key={index}
+              title={expenses.title}
+              amount={expenses.Amount}
+              date={expenses.date}
+              location={expenses.locationOfExpenditure}
+            />
+          );
+        })}
+      </Card>
+      <div>
+        <form>
+          <div></div>
+        </form>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
