@@ -44,14 +44,14 @@ const App = () => {
 
     setExpenses(newExpenseFull);
   };
-
+  
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
 
       <Card className="expenses">
         {expenses.map((expenses, index) => {
-          console.log("ge");
+          
           return (
             <ExpenseItem
               key={index}
@@ -71,5 +71,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
