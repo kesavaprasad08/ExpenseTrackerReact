@@ -10,7 +10,7 @@ const DUMMY_EXPENSES = [
     id: "e1",
     title: "Food",
     amount: 150,
-    date: new Date(2023, 2, 16),
+    date: new Date(2021, 0, 16),
     locationOfExpenditure: "Chennai",
   },
   {
@@ -24,14 +24,14 @@ const DUMMY_EXPENSES = [
     id: "e3",
     title: "Movies",
     amount: 200,
-    date: new Date(2021, 2, 28),
+    date: new Date(2021, 1, 28),
     locationOfExpenditure: "Kochi",
   },
   {
     id: "e4",
     title: "rent",
-    amount: 20000,
-    date: new Date(2021, 1, 1),
+    amount: 250,
+    date: new Date(2021, 3, 1),
     locationOfExpenditure: "Chennai",
   },
 ];
