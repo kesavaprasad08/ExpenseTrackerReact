@@ -1,74 +1,58 @@
 import React, { useState } from "react";
 
-import ExpenseItem from "./components/Expenses/ExpenseItem";
-import Card from "./components/UI/card";
 import "./components/Expenses/Expenses.css";
 import NewExpense from "./components/Expenses/newExpense/NewExpense";
+import Expenses from "./components/Expenses/Expenses";
+
+
+const DUMMY_EXPENSES = [
+  {
+    id: "e1",
+    title: "Food",
+    amount: 150,
+    date: new Date(2023, 2, 16),
+    locationOfExpenditure: "Chennai",
+  },
+  {
+    id: "e2",
+    title: "Petrol",
+    amount: 100,
+    date: new Date(2021, 2, 28),
+    locationOfExpenditure: "Bangalore",
+  },
+  {
+    id: "e3",
+    title: "Movies",
+    amount: 200,
+    date: new Date(2021, 2, 28),
+    locationOfExpenditure: "Kochi",
+  },
+  {
+    id: "e4",
+    title: "rent",
+    amount: 20000,
+    date: new Date(2021, 1, 1),
+    locationOfExpenditure: "Chennai",
+  },
+];
 
 const App = () => {
-  const expenses = [
-    {
-      id: "e1",
-      title: "Food",
-      Amount: 150,
-      date: new Date(2023, 2, 16),
-      locationOfExpenditure: "Chennai",
-    },
-    {
-      id: "e2",
-      title: "Petrol",
-      Amount: 100,
-      date: new Date(2021, 2, 28),
-      locationOfExpenditure: "Bangalore",
-    },
-    {
-      id: "e3",
-      title: "Movies",
-      Amount: 200,
-      date: new Date(2021, 2, 28),
-      locationOfExpenditure: "Kochi",
-    },
-    {
-      id: "e4",
-      title: "rent",
-      Amount: 20000,
-      date: new Date(2021, 1, 1),
-      locationOfExpenditure: "Chennai",
-    },
-  ];
+  const [expenses,setExpenses] = useState(DUMMY_EXPENSES);
 
-  const [newexpenses, setExpenses] = useState(expenses);
 
-  const addExpenseHandler = (enteredExpensedData) => {
-    const newExpenseFull = { ...newexpenses, enteredExpensedData };
+  const addExpenseHandler = expense => {
+   
+    setExpenses((prevExpenses) =>{
+      return [expense,...prevExpenses];
+  });
+};
 
-    setExpenses(newExpenseFull);
-  };
-  
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items ={expenses}/> 
 
-      <Card className="expenses">
-        {expenses.map((expenses, index) => {
-          
-          return (
-            <ExpenseItem
-              key={index}
-              title={expenses.title}
-              amount={expenses.Amount}
-              date={expenses.date}
-              location={expenses.locationOfExpenditure}
-            />
-          );
-        })}
-      </Card>
-      <div>
-        <form>
-          <div></div>
-        </form>
-      </div>
-    </div>
+     </div>
   );
 };
 
